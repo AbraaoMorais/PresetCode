@@ -13,11 +13,13 @@
  		document.getElementById("complemento").style.display = "none"; //oculta elemento
  	}	
  	
+	const imgUrl = 'https://images.unsplash.com/photo-1522252234503-e356532cafd5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=925&q=80';
+
  	function botaof2() { 
  		console.log(trocarf);
  		document.getElementById("botao1").innerHTML = "Mostrar Menos"
- 		document.getElementById("complemento").innerHTML = "<img src='https://images.unsplash.com/photo-1522252234503-e356532cafd5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=925&q=80' class='post_image'/>";
-		 trocarf = 0;
+ 		document.getElementById("complemento").innerHTML = `<img src='${imgUrl}' class='post_image'/>`;
+		trocarf = 0;
  		document.getElementById("complemento").style.display = "block"; //mostra elemento
 
  	}
