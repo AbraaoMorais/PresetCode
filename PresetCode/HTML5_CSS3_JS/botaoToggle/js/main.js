@@ -18,8 +18,13 @@
  	function botaof2() { 
  		console.log(trocarf);
  		document.getElementById("botao1").innerHTML = "Mostrar Menos"
+<<<<<<< HEAD
  		document.getElementById("complemento").innerHTML = `<img src='${imgUrl}' class='post_image'/>`;
 		trocarf = 0;
+=======
+ 		document.getElementById("complemento").innerHTML = "<img src='https://images.unsplash.com/photo-1522252234503-e35' class='post_image'/>";
+		 trocarf = 0;
+>>>>>>> 015afc3123e7ee67fce53efa84319487be196889
  		document.getElementById("complemento").style.display = "block"; //mostra elemento
 
  	}
