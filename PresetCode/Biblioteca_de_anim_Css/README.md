@@ -8,8 +8,4 @@ Basta realizar o download da biblioteca AMTEC-A.css e incluíla no head seu cód
 Para invocar um efeito em um de seus elementos, basta adcionar a tag "A-Amtec-SuaAnimação" em sua classe.
 Exemplo aplicado em um elemento do tipo imagem:  <img src="minhaimagem.png" class="SuaClassePessoal A-Amtec-ZoomIn"></img>
 
-<<<<<<< HEAD
-updated-teste johnZ!
-=======
 updated-teste johns!
->>>>>>> 7c8aab8c2ef0aa87eb5d33fa27b4d7f9172e2637
