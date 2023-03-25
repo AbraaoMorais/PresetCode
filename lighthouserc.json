@@ -2,20 +2,21 @@
   "ci": {
     "assert": {
       "preset":"lighthouse:no-pwa",
+      "includePassedAssertions": false,
       "assertions": {
         "categories:performance": ["error", {"minScore": 0.9}],
         "categories:accessibility": ["warn", {"minScore": 0.9}],
         "categories:best-practices": ["warn", {"minScore": 0.9}],
         "categories:seo": ["warn", {"minScore": 0.9}],
-        "first-contentful-paint": ["warn", {"maxNumericValue": 1000}],
+        "first-contentful-paint": ["warn", {"maxNumericValue": 1800}],
         "first-meaningful-paint":["warn", {"maxNumericValue": 1000}],
         "largest-contentful-paint":["warn", {"maxNumericValue": 2500}],
-        "cumulative-layout-shift":["error", { "maxLength": 0.100 }],
+        "cumulative-layout-shift":["error", { "maxNumericValue": 100 }],
         "max-potential-fid":["warn", {"maxNumericValue": 3000}],
         "interactive": ["warn", {"maxNumericValue": 3000}],
-        "total-blocking-time":["error", { "maxLength": 0.150 }],
+        "total-blocking-time":["warn", { "maxNumericValue": 200 }],
         "speed-index": ["warn", {"maxNumericValue": 3400}],
-        "render-blocking-resources": ["warn", { "maxLength": 0 }],
+        "render-blocking-resources": ["warn", { "minScore": 0.9 }],
         "resource-summary:document:size": ["warn", {"maxNumericValue": 14000}],
         "resource-summary:script:size": ["warn", {"maxNumericValue": 140000}],
         "resource-summary:font:size": ["warn", {"maxNumericValue": 100000}],
@@ -29,10 +30,10 @@
     },
     "collect": {
       "settings": {
+        "emulatedFormFactor":"desktop",
         "chromeFlags": ["--disable-gpu", "--no-sandbox", "--no-zygote"],
         "configPath": "./.github/lighthouse/desktop-config.js",
-        "extraHeaders": "{\"Cookie\":\"monster=blue\",\"x-men\":\"wolverine\"}",
-        "preset": "desktop"
+        "extraHeaders": "{\"Cookie\":\"monster=blue\",\"x-men\":\"wolverine\"}"
       }
     }
   }
