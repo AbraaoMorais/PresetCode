@@ -1,0 +1,37 @@
+name: live
+on: [deployment_status]
+
+jobs:
+  lighthouse:
+    name: lighthouse
+    runs-on: ubuntu-latest
+    if: github.event.deployment_status.state == 'success' && github.event.deployment_status.creator.login == 'deno-deploy[bot]'
+
+    env:
+      URL: ${{ github.event.deployment_status.environment_url }}
+
+    steps:
+    
+      - run: echo "Deployed to dev test server on branch $GITHUB_REF"
+
+      - uses: actions/checkout@v3
+
+      - name: Install Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+    
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@0.9.x
+
+      - name: Run Lighthouse
+        run: 
+          lhci autorun 
+            --collect.url="$URL" 
+            --upload.target="temporary-public-storage"
+          lhci assert --config=./.github/lighthouse/lighthouserc.json
+          # lhci assert --budgetsFile=./.github/lighthouse/budget.json
+            # --preset= --includePassedAssertions
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+  
